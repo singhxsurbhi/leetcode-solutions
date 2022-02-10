@@ -1,3 +1,3 @@
 # leetcode solutions
 
-here , I will be adding the leetcode qustions that I solve from now on.
+Here , I will be adding the solutions to the leetcode questions that I solve.
