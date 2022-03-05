@@ -5,10 +5,10 @@ class Solution {
         
         int[] dp=new int[10001];
         for(int s : nums)
-            dp[s]++;
+            dp[s]+=s;
         
         for(int i=0;i<=10000;i++){
-            int numi=skip+dp[i]*i;
+            int numi=skip+dp[i];
             int nume= Math.max(count,skip);
             
             count=numi;
