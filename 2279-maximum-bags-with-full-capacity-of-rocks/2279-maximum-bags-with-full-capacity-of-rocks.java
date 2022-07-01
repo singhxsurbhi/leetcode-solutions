@@ -1,24 +1,21 @@
 class Solution {
-    public int maximumBags(int[] capacity, int[] rocks, int additionalRocks) {
-        int n = capacity.length;
-        int count=0;
-        int[] space = new int[n];
-        for(int i=0;i<n;i++){
-            space[i]=capacity[i]-rocks[i];
+    public int maximumUnits(int[][] boxTypes, int truckSize) {
+      int maxtotal=0;
+        
+        for(int i=0;i<boxTypes.length-1;i++){
+            for(int j=0; j<boxTypes.length-i-1;j++){
+            if(boxTypes[j][1] > boxTypes[j+1][1]){
+                int temp[]=boxTypes[j];
+                boxTypes[j]=boxTypes[j+1];
+                boxTypes[j+1]=temp;
+            }
+           }
         }
         
-        Arrays.sort(space);
-        for(int i=0;i<n && additionalRocks>0;i++){
-            int temp=space[i];
-            space[i] -= Math.min(additionalRocks,space[i]); 
-            additionalRocks -= temp;
+        for(int i=boxTypes.length-1;i>=0 && truckSize>0 ;i--){
+            maxtotal += Math.min(boxTypes[i][0],truckSize)*boxTypes[i][1];
+            truckSize -= boxTypes[i][0];
         }
-        for(int i=0;i<n;i++){
-            if(space[i]==0) count++;
-        }
-        return count;
-    }
+        return maxtotal;
+      }
 }
-
-
-
