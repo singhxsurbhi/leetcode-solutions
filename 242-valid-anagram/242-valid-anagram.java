@@ -8,10 +8,8 @@ class Solution {
         Arrays.sort(s_array);
         Arrays.sort(t_array);
         
-        for(int i=0;i<s.length();i++){
-            if (s_array[i] != t_array[i]) return false;
-        }
-        
-        return true;
+        String s1 = new String(s_array);
+        String s2 = new String(t_array);
+        return s1.equals(s2);
     }
 }
