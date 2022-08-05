@@ -1,18 +1,18 @@
 class Solution {
     public int balancedStringSplit(String s) {
-        int countL=0;
-        int countR=0;
+        int count=0;
         
         int ans=0;
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)=='L') countL++;
-            if(s.charAt(i)=='R') countR++;
+        int i=0;
+        
+        while(i<s.length()){
+            if(s.charAt(i)=='L') count++;
+            else if(s.charAt(i)=='R') count--;
             
-            if(countL==countR){
+            if(count==0){
                 ans++;
-                countL=0;
-                countR=0;
             }
+            i++;
         }
         return ans;
     }
